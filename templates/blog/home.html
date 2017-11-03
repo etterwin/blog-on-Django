@@ -1,37 +1,84 @@
+<!-- Python -->
 {% load staticfiles %}
 
+<!-- HTML -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
 
-    
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&amp;subset=cyrillic"
+          rel="stylesheet" />
+
+
 </head>
 <body>
 
-    <div class="page-header">
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">Create new post</span></a>
-        {% endif %}
-        <h1 class="caption">Hello, world!</h1>
+<header class="header">
+
+    <div class="header--dark">
+
+        <div class="header-wrapper">
+
+            <div class="header__menu">
+
+                <h1 class="header-logo">Russian kitchen</h1>
+
+                <nav class="header-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="{%  url 'home' %}" class="nav-link">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{%  url 'post_list' %}" class="nav-link">Блог</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">О русской кухне</a>
+                        </li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'post_new' %}" class="nav-link">Создать запись</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <div class="header__container">
+
+                <h1 class="header-caption">Все о русской кухне</h1>
+
+                <p class="header-text">Русский стол является одним из богатейших в мире — это отмечали практически все
+                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
+                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
+                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
+                    подачу насчитывалось несколько десятков. </p>
+
+                <a href="#" id="to_down" class="header-btn">Вперед!</a>
+
+            </div>
+
+        </div>
     </div>
+
+</header>
+
+<div class="wrapper">
 
     {% block content %}
 
-    <p>Hi there!</p>
-    <p>It works!</p>
 
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
-{% endblock %}
+
+    {% endblock %}
+
+</div>
 
 </body>
 </html>

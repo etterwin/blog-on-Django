@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  background: white;
+  font-family: 'Oswald', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+@font-face {
+  font-family: This;
+  src: url("../assets/font/This-Regular.woff");
+}
+
+/*header*/
+
+.header {
+  width: 100%;
+  min-height: 600px;
+  background: url("../assets/pictures/img/bg.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  position: relative;
+}
+
+.header--dark {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  min-height: 540px;
+  position: relative;
+}
+
+.header__menu {
+  width: 100%;
+}
+
+.header-logo {
+  display: inline-block;
+  max-width: 400px;
+  font-family: This, serif;
+  text-transform: uppercase;
+  color: white;
+  font-size: 40px;
+}
+
+.header-nav {
+  float: right;
+  max-width: 470px;
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  min-height: 47px;
+}
+
+.nav-item {
+  display: inline-block;
+  margin: auto 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.header__container {
+  position: absolute;
+  width: 70%;
+  bottom: 30px;
+  min-height: 300px;
+}
+
+.header-caption {
+  color: white;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+}
+
+.header-text {
+  color: white;
+  font-size: 20px;
+  width: 80%;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.header-btn {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 4px;
+}

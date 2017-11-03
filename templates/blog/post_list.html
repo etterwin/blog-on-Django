@@ -1,12 +1,16 @@
-
+<!-- Python -->
 {% extends 'blog/home.html' %}
 {% load staticfiles %}
+
+<!-- HTML -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Post list</title>
+
 </head>
 <body>
 
@@ -21,6 +25,7 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
+            <img src="{{ MEDIA_URL }}{{ post.image }}">
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
