@@ -6,7 +6,7 @@ html,
 body {
   height: 100vh;
   width: 100%;
-  background: white;
+  background: #f0f0f0;
   font-family: 'Oswald', sans-serif; }
 
 a {
@@ -42,7 +42,15 @@ ul {
   position: relative; }
 
 .header__menu {
-  width: 100%; }
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 20px; }
+
+.menu-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto; }
 
 .header-logo {
   display: inline-block;
@@ -66,10 +74,48 @@ ul {
   margin: auto 10px;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 20px; }
+  font-size: 18px; }
 
 .nav-link {
-  color: white; }
+  color: white;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding: 8px 0;
+  opacity: 0.8; }
+  .nav-link:hover {
+    opacity: 1;
+    transition: all 0.2s ease-in;
+    text-decoration: none; }
+  .nav-link:not(:hover) {
+    transition: all 0.2s ease-in; }
+
+.nav-link:before,
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  background: #fff; }
+
+.nav-link:before {
+  left: 0; }
+
+.nav-link:after {
+  right: 0;
+  background: #fff;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.nav-link:hover:before {
+  background: #fff;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.nav-link:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s; }
 
 .header__container {
   position: absolute;
@@ -99,5 +145,36 @@ ul {
   text-align: center;
   border: 1px solid white;
   border-radius: 4px; }
+
+/*base*/
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto 0; }
+
+.caption-icon {
+  display: block;
+  width: 70px;
+  margin: 0 auto 20px; }
+
+.phrase {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  font-style: italic;
+  text-align: center;
+  color: slategray;
+  font-size: 16px; }
+
+.content {
+  display: flex;
+  width: 100%;
+  margin: 20px auto; }
+
+.container {
+  display: inline-block;
+  width: 30%;
+  margin: auto;
+  background: white; }
 
 /*# sourceMappingURL=style.css.map */

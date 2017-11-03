@@ -7,7 +7,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Home page</title>
+    <title>Russian Kitchen</title>
 
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -24,95 +24,98 @@
 </head>
 <body>
 
-<header class="header">
+<div class="header__menu">
 
-    <div class="header--dark">
+    <div class="menu-wrapper">
 
-        <div class="header-wrapper">
+        <h1 class="header-logo">Russian kitchen</h1>
 
-            <div class="header__menu">
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="{%  url 'home' %}" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{%  url 'post_list' %}" class="nav-link">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">О русской кухне</a>
+                </li>
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="nav-link">Создать запись</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
 
-                <h1 class="header-logo">Russian kitchen</h1>
+    </div>
 
-                <nav class="header-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="{%  url 'home' %}" class="nav-link">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{%  url 'post_list' %}" class="nav-link">Блог</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">О русской кухне</a>
-                        </li>
-                        <li class="nav-item">
-                            {% if user.is_authenticated %}
-                                <a href="{% url 'post_new' %}" class="nav-link">Создать запись</a>
-                            {% endif %}
-                        </li>
-                    </ul>
-                </nav>
+</div>
+
+{% block content %}
+
+    <header class="header">
+
+        <div class="header--dark">
+
+            <div class="header-wrapper">
+
+                <div class="header__container">
+
+                    <h1 class="header-caption">Все о русской кухне</h1>
+
+                    <p class="header-text">Русский стол является одним из богатейших в мире — это отмечали практически все
+                        иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
+                        чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
+                        цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
+                        подачу насчитывалось несколько десятков. </p>
+
+                    <a href="#scroll_down" id="to_down" class="header-btn">Вперед!</a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+    <div class="wrapper">
+
+        <img src="{% static 'assets/pictures/svg/soup.svg' %}" class="caption-icon" />
+        <p class="phrase">«Еда раскрывает в человеке самое потаенное. Пусть он читает в оригинале Горация, но вы видите
+            его намазывающим икру на черный хлеб - и все тщательно скрываемые плебейские корни рвутся наружу.»</p>
+
+        <div class="content">
+
+            <div class="container">
+
+                <img src="" class="container-icon" />
+                <p class="container-description"></p>
 
             </div>
 
-            <div class="header__container">
+            <div class="container">
 
-                <h1 class="header-caption">Все о русской кухне</h1>
+                <img src="" class="container-icon" />
+                <p class="container-description"></p>
 
-                <p class="header-text">Русский стол является одним из богатейших в мире — это отмечали практически все
-                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
-                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
-                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
-                    подачу насчитывалось несколько десятков. </p>
+            </div>
 
-                <a href="#scroll_down" id="to_down" class="header-btn">Вперед!</a>
+            <div class="container">
+
+                <img src="" class="container-icon" />
+                <p class="container-description"></p>
 
             </div>
 
         </div>
-    </div>
-
-</header>
-
-<div class="wrapper">
-
-    {% block content %}
-
-        <h1 class="heade">Все о русской кухне</h1>
-
-                <p class="header-">Русский стол является одним из богатейших в мире — это отмечали практически все
-                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
-                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
-                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
-                    подачу насчитывалось несколько десятков. </p>
-        <h1 class="header-caption">Все о русской кухне</h1>
-
-                <p class="header-te">Русский стол является одним из богатейших в мире — это отмечали практически все
-                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
-                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
-                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
-                    подачу насчитывалось несколько десятков. </p>
-        <h1 class="header-caon">Все о русской кухне</h1>
-
-                <p class="headext">Русский стол является одним из богатейших в мире — это отмечали практически все
-                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
-                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
-                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
-                    подачу насчитывалось несколько десятков. </p>
-        <h1 class="header-capon">Все о русской кухне</h1>
-
-                <p class="headxt">Русский стол является одним из богатейших в мире — это отмечали практически все
-                    иностранцы, побывавшие в России со времен Иоанна Грозного. В известной «Росписи к царским кушаньям»
-                    чего только нет: и королевские пироги, и рулады из кроликов, и глазированная семга, и маринады из
-                    цыплят, и окуни с ветчиною, и языки копченые, и потроха по-царски. Одних только похлебок в первую
-                    подачу насчитывалось несколько десятков. </p>
-
 
         <a id="scroll_down"></a>
 
-    {% endblock %}
+    </div>
 
-</div>
+{% endblock %}
 
 </body>
 </html>
